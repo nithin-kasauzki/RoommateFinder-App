@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'interest.dart';
 class RegisterPage extends StatefulWidget {
   @override
   _RegisterPageState createState() => _RegisterPageState();
@@ -34,6 +34,19 @@ class _RegisterPageState extends State<RegisterPage> {
                 controller: _nameController,
                 decoration: InputDecoration(
                   hintText: 'Enter your name',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Theme.of(context).accentColor,
+                      width: 2.0,
+                    ),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  filled: true,
+                  fillColor: Colors.grey[200],
+                  contentPadding: EdgeInsets.all(10.0),
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -51,6 +64,19 @@ class _RegisterPageState extends State<RegisterPage> {
                 controller: _rollNumController,
                 decoration: InputDecoration(
                   hintText: 'Enter your roll number',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Theme.of(context).accentColor,
+                      width: 2.0,
+                    ),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  filled: true,
+                  fillColor: Colors.grey[200],
+                  contentPadding: EdgeInsets.all(10.0),
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -68,6 +94,19 @@ class _RegisterPageState extends State<RegisterPage> {
                 controller: _deptController,
                 decoration: InputDecoration(
                   hintText: 'Enter your department',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Theme.of(context).accentColor,
+                      width: 2.0,
+                    ),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  filled: true,
+                  fillColor: Colors.grey[200],
+                  contentPadding: EdgeInsets.all(10.0),
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -93,15 +132,29 @@ class _RegisterPageState extends State<RegisterPage> {
                     value: 'female',
                   ),
                 ],
+                decoration: InputDecoration(
+                  hintText: 'Select your gender',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Theme.of(context).accentColor,
+                      width: 2.0,
+                    ),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  filled: true,
+                  fillColor: Colors.grey[200],
+                  contentPadding: EdgeInsets.all(10.0),
+                ),
                 onChanged: (value) {
                   setState(() {
                     _genderValue = value!;
                   });
                 },
-                decoration: InputDecoration(
-                  hintText: 'Select your gender',
-                ),
               ),
+
               SizedBox(height: 20.0),
               Text(
                 'Email',
@@ -111,26 +164,45 @@ class _RegisterPageState extends State<RegisterPage> {
                 controller: _emailController,
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
-                  hintText: 'Enter your email address',
+                  hintText: 'Enter your email',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Theme.of(context).accentColor,
+                      width: 2.0,
+                    ),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  filled: true,
+                  fillColor: Colors.grey[200],
+                  contentPadding: EdgeInsets.all(10.0),
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter your email address';
+                    return 'Please enter your email';
                   }
                   if (!value.contains('@')) {
-                    return 'Please enter a valid email address';
+                    return 'Please enter a valid email';
                   }
                   return null;
                 },
               ),
-              SizedBox(height: 30.0),
-              ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState != null && _formKey.currentState!.validate()) {
-                    // Do registration logic here
-                  }
-                },
-                child: Text('Register'),
+              SizedBox(height: 20.0),
+              Center(
+                child: ElevatedButton(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                        // TODO: Perform registration
+                      Navigator.pushReplacement(context, MaterialPageRoute (
+                          builder: (BuildContext context) =>  InterestsPage(),
+                    ),);
+                      print('Registration Successful');
+                    }
+                  },
+                  child: Text('Next'),
+                ),
               ),
             ],
           ),
