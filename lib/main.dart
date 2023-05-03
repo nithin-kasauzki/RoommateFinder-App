@@ -6,7 +6,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
@@ -15,10 +15,18 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        // Define the gradient background here
+        scaffoldBackgroundColor: Colors.blue.shade50,
+        backgroundColor: Colors.blue,
+
       ),
       home: HomePage(),
     );
   }
 }
+
+
+
+
 
 

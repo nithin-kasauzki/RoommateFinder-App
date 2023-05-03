@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/dashboard.dart';
 
 class InterestsPage extends StatefulWidget {
   @override
@@ -6,7 +7,7 @@ class InterestsPage extends StatefulWidget {
 }
 
 class _InterestsPageState extends State<InterestsPage> {
-  final List<String> _interests = [    'Technology',    'Sports',    'Music',    'Politics',    'Art',    'Food',    'Travel',    'Fashion',  ];
+  final List<String> _interests = [ "basketball", "volleyball", "football", "swimming", "running", "cycling", "cricket", "chess", "Music", "Singing", "AI & machine learning", "web & app development", "computer programming", "Blockchain", "Video Games", "Traveling and exploring new places", "painting", "drawing", "photography", "graphic design", "Watching movies", "Watching series", ];
 
   List<String> _selectedInterests = [];
 
@@ -108,6 +109,16 @@ class InterestsResultPage extends StatelessWidget {
                   label: Text(interest),
                 );
               }).toList(),
+            ),
+            SizedBox(height: 100.0,),
+            ElevatedButton(
+              onPressed: () {
+                // Do something when button 1 is pressed
+                Navigator.pushReplacement(context, MaterialPageRoute (
+                    builder: (BuildContext context) =>  Dashboard(),
+                ),);
+              },
+              child: Text('Complete'),
             ),
           ],
         ),
