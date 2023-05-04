@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'dashboard.dart';
-
+import 'signup.dart';
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
 
@@ -28,7 +28,7 @@ class _LoginState extends State<Login> {
                   alignment: Alignment.center,
                   padding: const EdgeInsets.all(10),
                   child: const Text(
-                    'Attendance app',
+                    'ROOMMATE FINDER',
                     style: TextStyle(
                         color: Colors.blue,
                         fontWeight: FontWeight.w500,
@@ -88,6 +88,9 @@ class _LoginState extends State<Login> {
                     ),
                     onPressed: () {
                       //signup screen
+                      Navigator.pushReplacement(context, MaterialPageRoute (
+                        builder: (BuildContext context) =>  RegisterPage(),
+                      ),);
                     },
                   )
                 ],
